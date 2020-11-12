@@ -21,6 +21,12 @@ pipeline {
           }
         }
 
+        stage('dependency-check-result') {
+          steps {
+            dependencyCheckPublisher(pattern: 'dependency-check-report.xml')
+          }
+        }
+
       }
     }
 
