@@ -7,26 +7,9 @@ pipeline {
       }
     }
 
-    stage('检测门禁') {
-      parallel {
-        stage('test') {
-          steps {
-            junit 'target/surefire-reports/TEST-*.xml'
-          }
-        }
-
-        stage('dependency-check') {
-          steps {
-            dependencyCheck(additionalArguments: '--failOnCVSS 10 --format ALL', odcInstallation: 'dependency-check')
-          }
-        }
-
-        stage('dependency-check-result') {
-          steps {
-            dependencyCheckPublisher(pattern: 'dependency-check-report.xml')
-          }
-        }
-
+    stage('test') {
+      steps {
+        junit 'target/surefire-reports/TEST-*.xml'
       }
     }
 
