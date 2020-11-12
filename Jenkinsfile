@@ -7,9 +7,9 @@ pipeline {
       }
     }
 
-    stage('test') {
+    stage('') {
       parallel {
-        stage('') {
+        stage('test') {
           steps {
             junit 'target/surefire-reports/TEST-*.xml'
           }
