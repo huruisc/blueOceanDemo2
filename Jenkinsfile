@@ -7,7 +7,7 @@ pipeline {
       }
     }
 
-    stage('') {
+    stage('检测门禁') {
       parallel {
         stage('test') {
           steps {
